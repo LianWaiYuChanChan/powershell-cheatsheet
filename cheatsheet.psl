@@ -17,3 +17,14 @@ Get-Alias | Where-Object {$_ -match "cat"}
 
 #Get file size
 (Get-Item .\10.141.45.85.har).length/1kb
+
+
+#String operation split
+$env:Path -Split ";"
+
+#Define string variable
+$a="a:a:a"
+$a -Split ":"
+
+#which
+Get-Command python
