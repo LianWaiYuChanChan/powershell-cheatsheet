@@ -1,3 +1,7 @@
+#Help
+help get-command
+help get-command -examples
+
 #Check env variable
 echo $env:Path
 Write-Output $env:Path
