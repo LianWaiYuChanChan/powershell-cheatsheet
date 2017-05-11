@@ -1,0 +1,19 @@
+#Check env variable
+echo $env:Path
+Write-Output $env:Path
+
+#Find file
+Get-ChildItem -Recurse -Include '*.xlsx'
+
+#Grep file content
+cat somefile.txt | where { $_ -match "some_regexp"}
+Get-content somefile.txt|findstr "someregexp"
+Select-String "some_regexp" somefile.txt
+
+
+#Get alias
+Get-Alias | Where-Object {$_ -match "cat"}
+
+
+#Get file size
+(Get-Item .\10.141.45.85.har).length/1kb
