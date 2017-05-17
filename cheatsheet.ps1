@@ -14,6 +14,15 @@ cat somefile.txt | where { $_ -match "some_regexp"}
 Get-content somefile.txt|findstr "someregexp"
 Select-String "some_regexp" somefile.txt
 
+#Get directory size
+Get-ChildItem -Recurse .\UnitySystem | Measure-Object -Property length -Sum
+
+#Get all sub directory
+ Get-ChildItem  | where {$_.psiscontainer -eq "True"}
+ 
+#Try to get all sub directory size (TODO: display the dir name)
+Get-ChildItem | where {$_.psiscontainer -eq "True"} | foreach {Get-ChildItem $_| Measure-Object -Property length -Sum}
+
 
 #Get alias
 Get-Alias | Where-Object {$_ -match "cat"}
