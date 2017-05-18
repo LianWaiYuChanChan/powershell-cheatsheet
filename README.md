@@ -16,6 +16,11 @@ Get-ChildItem $file -Recurse | Measure-Object -Sum Length | Select-Object @{Name
 }
 ···
 
+
+## Sound
+
+* http://jeffwouters.nl/index.php/2012/03/get-your-geek-on-with-powershell-and-some-music/ 
+
 # Reference
 * https://yaowenjie.github.io/front-end/powershell-cheatsheet
 * http://www.linkedin.com/pulse/technical-thursdays-get-directory-sizes-stupidly-fast-carlos-nunez (Directory size)

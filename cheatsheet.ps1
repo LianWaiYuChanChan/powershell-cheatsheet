@@ -41,3 +41,8 @@ $a -Split ":"
 
 #which
 Get-Command python
+
+# Sound
+
+Write-Host "`a`a`a"
+[console]::beep(200,100)   #200 is volumne, 100 is duration.
