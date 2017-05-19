@@ -17,7 +17,10 @@ foreach ($file in (Get-ChildItem | Where-Object {$_.psiscontainer -eq $true})) {
 Get-ChildItem $file -Recurse | Measure-Object -Sum Length | Select-Object @{Name="Path"; Expression={$directory.FullName}},@{Name="Files"; Expression={$_.Count}},@{Name="Size"; Expression={$_.Sum/1MB}}
 }
 ```
-
+## Error Handling
+```ps1
+Remove-Item "NoExist" -ErrorAction "SilentlyContinue"
+``
 
 ## Sound
 
