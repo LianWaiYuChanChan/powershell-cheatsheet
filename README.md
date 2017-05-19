@@ -6,7 +6,8 @@ Examples of powershell.
 * Better Terminal: ConEmu. Just execute powershell.exe in it.
 
 # Directory size:
-```
+
+```ps1
 Get-ChildItem ConcurrentJava -Recurse | Measure-Object -Sum Length | Select-Object @{Name="Path"; Expression={$directory.FullName}},@{Name="Files"; Expression={$_.Count}},@{Name="Size"; Expression={$_.Sum/1KB}}
 ```
 -------
