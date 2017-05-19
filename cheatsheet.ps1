@@ -46,3 +46,12 @@ Get-Command python
 
 Write-Host "`a`a`a"
 [console]::beep(200,100)   #200 is volumne, 100 is duration.
+
+#Dirsize Directory size
+Function dirsize {
+$a=@()
+foreach ($file in (Get-ChildItem | Where-Object {$_.psiscontainer -eq $true})) { 
+  $a += (Get-ChildItem $file -Recurse | Measure-Object -Sum Length | Select-Object @{Name="Path"; Expression={$file.FullName}},@{Name="Files"; Expression={$_.Count}},@{Name="Size"; Expression={$_.Sum/1MB}})
+}
+$a|Sort-Object -Property Size -Descending
+}
