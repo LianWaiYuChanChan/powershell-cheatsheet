@@ -46,3 +46,12 @@ Get-Command python
 
 Write-Host "`a`a`a"
 [console]::beep(200,100)   #200 is volumne, 100 is duration.
+
+
+#As administrator
+
+PS> Start-Process powershell -Verb runAs
+
+
+#Append to file
+cat A.file | out-file -Append -Encoding ascii B.file
