@@ -47,7 +47,6 @@ Get-Command python
 Write-Host "`a`a`a"
 [console]::beep(200,100)   #200 is volumne, 100 is duration.
 
-
 #As administrator
 
 PS> Start-Process powershell -Verb runAs
@@ -55,3 +54,12 @@ PS> Start-Process powershell -Verb runAs
 
 #Append to file
 cat A.file | out-file -Append -Encoding ascii B.file
+
+#Dirsize Directory size
+Function dirsize {
+$a=@()
+foreach ($file in (Get-ChildItem | Where-Object {$_.psiscontainer -eq $true})) { 
+  $a += (Get-ChildItem $file -Recurse | Measure-Object -Sum Length | Select-Object @{Name="Path"; Expression={$file.FullName}},@{Name="Files"; Expression={$_.Count}},@{Name="Size"; Expression={$_.Sum/1MB}})
+}
+$a|Sort-Object -Property Size -Descending
+}

@@ -6,16 +6,24 @@ Examples of powershell.
 * Better Terminal: ConEmu. Just execute powershell.exe in it.
 
 # Directory size:
-```
+
+```ps1
 Get-ChildItem ConcurrentJava -Recurse | Measure-Object -Sum Length | Select-Object @{Name="Path"; Expression={$directory.FullName}},@{Name="Files"; Expression={$_.Count}},@{Name="Size"; Expression={$_.Sum/1KB}}
 ```
 -------
-··· 
+
+```ps1
 foreach ($file in (Get-ChildItem | Where-Object {$_.psiscontainer -eq $true})) { 
 Get-ChildItem $file -Recurse | Measure-Object -Sum Length | Select-Object @{Name="Path"; Expression={$directory.FullName}},@{Name="Files"; Expression={$_.Count}},@{Name="Size"; Expression={$_.Sum/1MB}}
 }
-···
+```
+## Error Handling
+```ps1
+Remove-Item "NoExist" -ErrorAction "SilentlyContinue"
+```
 
+## TODO
+* Concurrency.
 
 ## Sound
 
