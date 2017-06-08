@@ -13,6 +13,7 @@ Get-ChildItem -Recurse -Include '*.xlsx'
 cat somefile.txt | where { $_ -match "some_regexp"}
 Get-content somefile.txt|findstr "someregexp"
 Select-String "some_regexp" somefile.txt
+ Get-ChildItem "*.pm" -Recurse | Select-String -Pattern "200"
 
 #Get directory size
 Get-ChildItem -Recurse .\UnitySystem | Measure-Object -Property length -Sum
